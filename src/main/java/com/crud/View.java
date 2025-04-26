@@ -26,19 +26,19 @@ public class View extends HttpServlet {
         List<User> list = null;
 
         out.print("<h1> Users Table </h1>");
-        out.print(
-                "<table border='1' cellpadding='4' width='80%'>");
-        out.print("<tr><th>Id</th><th>username</th></tr>");
+        out.print("<table border='1' cellpadding='4' width='80%'>");
+        out.print("<tr><th>Id</th><th>Username</th><th>Action</th></tr>");
 
         try {
             list = UserDao.fetchAll();
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         if (list != null) {
             for (User user : list) {
-                out.print("<tr><td>" + user.getId() + "</td><td>" + user.getUsername() + "</td></tr>");
+                out.print("<tr><td>" + user.getId() + "</td><td>" + user.getUsername() +
+                        "</td><td><a href='update?id=" + user.getId() + "'>Update</a></td></tr>");
             }
             out.print("</table>");
         }

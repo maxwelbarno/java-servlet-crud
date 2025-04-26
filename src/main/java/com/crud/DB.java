@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DB {
-    protected static Connection initConnection() throws SQLException, ClassNotFoundException {
+    protected static Connection initConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/";
         String db = "auth";
         String username = "admin";
