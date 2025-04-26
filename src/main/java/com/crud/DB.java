@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConn {
-    protected static Connection initDB() throws SQLException, ClassNotFoundException {
+public class DB {
+    protected static Connection initConnection() throws SQLException, ClassNotFoundException {
         String url = "jdbc:mysql://localhost:3306/";
         String db = "auth";
         String username = "admin";
