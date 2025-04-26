@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/users")
-public class ViewUsers extends HttpServlet {
+public class View extends HttpServlet {
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html;charset=UTF-8");
@@ -42,5 +42,6 @@ public class ViewUsers extends HttpServlet {
             }
             out.print("</table>");
         }
+        out.close();
     }
 }

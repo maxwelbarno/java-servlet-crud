@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
-
     public static List<User> fetchAll() throws SQLException, ClassNotFoundException {
         List<User> list = new ArrayList<User>();
         Connection conn = DBConn.initDB();
@@ -23,5 +22,17 @@ public class UserDao {
         }
         conn.close();
         return list;
+    }
+
+    public static int create(User user) throws SQLException, ClassNotFoundException {
+        int result = 0;
+        Connection conn = DBConn.initDB();
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO users(username, password) values(?,?)");
+
+        statement.setString(1, user.getUsername());
+        statement.setString(2, user.getPassword());
+        result = statement.executeUpdate();
+        conn.close();
+        return result;
     }
 }
