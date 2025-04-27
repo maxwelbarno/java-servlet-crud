@@ -37,8 +37,7 @@ public class Create extends HttpServlet {
         }
 
         if (status > 0) {
-            out.println("<p>Record Saved Successfully!</p>");
-            req.getRequestDispatcher("index.html").include(req, res);
+            res.sendRedirect("users");
         } else {
             out.println("<p>Unable to save record!</p>");
         }

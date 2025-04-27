@@ -27,7 +27,7 @@ public class View extends HttpServlet {
 
         out.print("<h1> Users Table </h1>");
         out.print("<table border='1' cellpadding='4' width='80%'>");
-        out.print("<tr><th>Id</th><th>Username</th><th>Action</th></tr>");
+        out.print("<tr><th>Id</th><th>Username</th><th colspan='2'>Action</th></tr>");
 
         try {
             list = UserDao.fetchAll();
@@ -38,7 +38,8 @@ public class View extends HttpServlet {
         if (list != null) {
             for (User user : list) {
                 out.print("<tr><td>" + user.getId() + "</td><td>" + user.getUsername() +
-                        "</td><td><a href='update?id=" + user.getId() + "'>Update</a></td></tr>");
+                        "</td><td><a href='update?id=" + user.getId() + "'>Update</a></td><td><a href='delete?id="
+                        + user.getId() + "'>Delete</a></td></tr>");
             }
             out.print("</table>");
         }
